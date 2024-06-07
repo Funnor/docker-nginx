@@ -168,3 +168,11 @@ __EOF__
 ```
 
 Now, running `docker-compose up --build -d` will build the image and run the application for you.
+
+
+
+nginx编译需要添加第三方模块放到modules中，以文件夹命名，配置 modules/xx/source 模块下载路径
+
+Build 命令： 
+
+DOCKER_BUILDKIT=1 docker build --network=host --build-arg ENABLED_MODULES="upload vts" -f Dockerfile.alpine -t nginx:xx ./

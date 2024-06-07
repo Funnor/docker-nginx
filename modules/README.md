@@ -176,3 +176,10 @@ nginx编译需要添加第三方模块放到modules中，以文件夹命名，�
 Build 命令： 
 
 DOCKER_BUILDKIT=1 docker build --network=host --build-arg ENABLED_MODULES="upload vts" -f Dockerfile.alpine -t nginx:xx ./
+
+
+
+编译的第三方包放置在/etc/nginx/modules/ 目录下,nginx 配置文件需要添加模块在首行添加：
+
+load_module /etc/nginx/modules/ngx_http_upload_module.so;
+load_module /etc/nginx/modules/ngx_http_vhost_traffic_status_module.so;
